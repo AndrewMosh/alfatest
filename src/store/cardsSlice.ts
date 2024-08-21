@@ -103,24 +103,21 @@ const cardsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchCards.pending, (state) => {
-        state.loading = true; // Начало загрузки
-      })
-      .addCase(fetchCards.fulfilled, (state, action) => {
-        state.cards = action.payload;
-
-        // Загрузка сохраненных лайков из localStorage
-        const savedLikes = loadLikesFromLocalStorage();
-        state.cards.forEach(card => {
-          card.liked = savedLikes[card.id] || false;
-        });
-
-        state.loading = false; // Завершение загрузки
-      })
-      .addCase(fetchCards.rejected, (state) => {
-        state.loading = false; // Завершение загрузки в случае ошибки
-      });
+	builder
+	  .addCase(fetchCards.pending, (state) => {
+		state.loading = true; 
+	  })
+	  .addCase(fetchCards.fulfilled, (state, action) => {
+		state.cards = action.payload;
+		const savedLikes = loadLikesFromLocalStorage();
+		state.cards.forEach(card => {
+		  card.liked = savedLikes[card.id] || false;
+		});
+		state.loading = false; 
+	  })
+	  .addCase(fetchCards.rejected, (state) => {
+		state.loading = false; 
+	  });
   },
 });
 

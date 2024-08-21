@@ -16,9 +16,7 @@ export const CardList: React.FC = () => {
 
     const { cards, likedOnly, loading } = useSelector((state: RootState) => state.cards);
 
-    useEffect(() => {
-        dispatch(fetchCards());
-    }, [dispatch]);
+	
 
     const handleLike = (id: string) => {
         dispatch(toggleLike(id));
@@ -34,9 +32,16 @@ export const CardList: React.FC = () => {
 
     const filteredCards = likedOnly ? cards.filter((card: { liked: unknown }) => card.liked) : cards;
 
-    if (loading) {
+
+    useEffect(() => {
+        dispatch(fetchCards());
+		scrollTo(0, 0);
+    }, [dispatch]);
+
+	if (loading) {
         return <Loader />;
     }
+
 
     return (
         <div className="list">
@@ -45,7 +50,7 @@ export const CardList: React.FC = () => {
                     {likedOnly ? "Показать все" : "Только избранные"}
                 </button>
                 <div className="list__cards">
-                    {filteredCards.map((card) => (
+				{!loading && filteredCards.length && filteredCards.map((card) => (
                         <div className="list__card" key={card.id}>
                             <div className="list__content" onClick={() => navigate(`/test-alfa/card/${card.id}`)}>
                                 <div className="list__avatar">
@@ -67,9 +72,10 @@ export const CardList: React.FC = () => {
                                 </button>
                             </div>
                         </div>
-                    ))}
+                    )) || <p className="list__not-found">Здесь пусто :(</p>}
+					
                 </div>
-                {!filteredCards.length ? <div className="list__not-found">Здесь пусто : (</div> : null}
+                
             </div>
         </div>
     );

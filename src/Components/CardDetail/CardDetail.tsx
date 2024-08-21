@@ -37,6 +37,7 @@ export const CardDetail: React.FC = () => {
         if (!card) {
             dispatch(fetchCards());
         }
+		scrollTo(0, 0);
     }, [dispatch, card]);
 
     if (loading) {

@@ -59,9 +59,15 @@
         align-items: center;
     }
 
+	&__company{
+		color:#d7d4d4;
+		font-size: 18px;
+	}
+
     &__catchphrase {
-        height: 20px;
+        height: 25px;
         overflow: hidden;
+		font-size: 20px;
     }
 
     &__buttons {
