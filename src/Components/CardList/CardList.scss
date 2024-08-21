@@ -1,0 +1,83 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+
+    &__container {
+        position: relative;
+        width: 1248px;
+        margin: 0 auto;
+        padding: 0 16px;
+        font-size: 16px;
+
+        @media (max-width: 1280px) {
+            width: 992px;
+        }
+
+        @media (max-width: 1024px) {
+            width: 768px;
+        }
+
+        @media (max-width: 768px) {
+            width: 90%;
+            padding: 0 10px;
+        }
+    }
+
+    &__filter {
+        margin-bottom: 20px;
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    &__card {
+        padding: 20px;
+        border: 1px solid #e5e5e5;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__name {
+        height: 40px;
+        overflow: hidden;
+    }
+
+    &__avatar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__catchphrase {
+        height: 20px;
+        overflow: hidden;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__delete {
+        cursor: pointer;
+        background-color: rgba(255, 0, 0, 0.092);
+        color: red;
+    }
+
+    &__not-found {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 60px;
+    }
+}
