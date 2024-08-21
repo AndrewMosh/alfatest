@@ -47,7 +47,7 @@ export const CardDetail: React.FC = () => {
         return (
             <div className="card">
                 <div className="card__not-found">Не найдено</div>
-                <button className="card__back" onClick={() => navigate("/")}>
+                <button className="card__back" onClick={() => navigate("/test-alfa")}>
                     Назад
                 </button>
             </div>
@@ -75,7 +75,7 @@ export const CardDetail: React.FC = () => {
     return (
         <div className="card">
             <div className="card__container list__container">
-                <button className="card__back" onClick={() => navigate("/")}>
+                <button className="card__back" onClick={() => navigate("/test-alfa")}>
                     Назад
                 </button>
                 <div className="card__avatar">

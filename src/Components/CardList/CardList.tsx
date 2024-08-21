@@ -47,7 +47,7 @@ export const CardList: React.FC = () => {
                 <div className="list__cards">
                     {filteredCards.map((card) => (
                         <div className="list__card" key={card.id}>
-                            <div className="list__content" onClick={() => navigate(`/card/${card.id}`)}>
+                            <div className="list__content" onClick={() => navigate(`/test-alfa/card/${card.id}`)}>
                                 <div className="list__avatar">
                                     <h2 className="list__name">{card.name}</h2>
                                     <div>

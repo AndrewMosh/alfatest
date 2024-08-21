@@ -9,15 +9,15 @@ import { Layout } from "./Components/LayOut/Layout.tsx";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/test-alfa",
         element: <Layout />,
         children: [
             {
-                path: "/",
+                path: "",
                 element: <CardList />,
             },
             {
-                path: "/card/:id",
+                path: "card/:id",
                 element: <CardDetail />,
             },
         ],
